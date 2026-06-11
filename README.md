@@ -1,3 +1,5 @@
+# Computer-Communication-and-Networks
+
 # Multi-Threaded TCP Instant Messaging System
 
 A concurrent, low-latency client-server Instant Messaging (IM) system built from scratch using raw TCP sockets and Python's standard library. This project implements custom application-layer framing to handle stream boundary issues and decouples network I/O from the user interface using a thread-safe execution model.
@@ -17,6 +19,7 @@ A concurrent, low-latency client-server Instant Messaging (IM) system built from
 ### 1. Framing & Wire Protocol
 Because TCP is a stream-oriented protocol, data boundaries are not preserved. To prevent message bleeding and truncation, this system implements an explicit application-layer frame constraint:
 
+```text
 +---------------------------+-----------------------------------+
 |  Header: 4-Byte Integer   |       Payload: JSON String        |
 |    (Network Byte Order)   |          (UTF-8 Encoded)          |
